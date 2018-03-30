@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-
+import { UserProvider } from '../../providers/providers';
+import {ListPage} from "../list/list";
 /**
  * Generated class for the LoginPage page.
  *
@@ -19,7 +20,13 @@ export class LoginPage {
     password: ''
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController,) {
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public toastCtrl: ToastController,
+      public user: UserProvider,
+  ) {
+    //
   }
 
   ionViewDidLoad() {
@@ -27,18 +34,17 @@ export class LoginPage {
   }
 
   doLogin() {
-    /*this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push(MainPage);
+    this.user.login(this.account).subscribe((resp) => {
+      this.navCtrl.push(ListPage);
     }, (err) => {
-      this.navCtrl.push(MainPage);
+      this.navCtrl.push(ListPage);
       // Unable to log in
       let toast = this.toastCtrl.create({
-        message: this.loginErrorString,
+        message: 'Colocar Texto de Erro',
         duration: 3000,
         position: 'top'
       });
       toast.present();
-    });*/
-    console.log('oi');
+    });
   }
 }
