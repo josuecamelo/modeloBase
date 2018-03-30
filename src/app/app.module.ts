@@ -12,6 +12,8 @@ import {LoginPage} from "../pages/login/login";
 import { ApiProvider } from '../providers/api/api';
 import { UserProvider } from '../providers/user/user';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,6 +24,7 @@ import { UserProvider } from '../providers/user/user';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

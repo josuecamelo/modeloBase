@@ -20,7 +20,8 @@ export class UserProvider {
    * the user entered on the form.
    */
   login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
+    //let seq = this.api.post('login', accountInfo).share();
+    let seq = this.api.post('login', accountInfo).pipe();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
@@ -39,7 +40,7 @@ export class UserProvider {
    * Send a POST request to our signup endpoint with the data
    * the user entered on the form.
    */
-  signup(accountInfo: any) {
+  /*signup(accountInfo: any) {
     let seq = this.api.post('signup', accountInfo).share();
 
     seq.subscribe((res: any) => {
@@ -52,7 +53,7 @@ export class UserProvider {
     });
 
     return seq;
-  }
+  }*/
 
   /**
    * Log the user out, which forgets the session
