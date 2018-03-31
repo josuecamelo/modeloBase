@@ -11,8 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import { ApiProvider } from '../providers/api/api';
 import { UserProvider } from '../providers/user/user';
+import { HttpClientModule } from '@angular/common/http';  // replaces previous Http service
 
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

@@ -20,40 +20,24 @@ export class UserProvider {
    * the user entered on the form.
    */
   login(accountInfo: any) {
-    //let seq = this.api.post('login', accountInfo).share();
-    let seq = this.api.post('login', accountInfo).pipe();
+    //let seq = this.api.post('login', accountInfo);
+    let seq = this.api.post('login/v1', accountInfo).pipe();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
+      /*if (res.status == 'success') {
         this._loggedIn(res);
       } else {
-      }
+      }*/
+      console.log(res.success)
+      console.log('passou no login');
+      console.log(res);
     }, err => {
       console.error('ERROR', err);
     });
 
     return seq;
   }
-
-  /**
-   * Send a POST request to our signup endpoint with the data
-   * the user entered on the form.
-   */
-  /*signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
-
-    seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
-      }
-    }, err => {
-      console.error('ERROR', err);
-    });
-
-    return seq;
-  }*/
 
   /**
    * Log the user out, which forgets the session
