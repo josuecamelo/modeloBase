@@ -25,9 +25,9 @@ export class AuthProvider {
     seq.subscribe((data: any) => {
       this.check = true;
       this._token = data.data.token;
-      this.setTokenInStorage(this._token);
+      //this.setTokenInStorage(this._token);
       //this.getUser();
-      console.log(this.getTokenInStorage());
+      //console.log(this.getTokenInStorage());
     });
   }
 
@@ -35,10 +35,10 @@ export class AuthProvider {
       Metodo TOKEN set and get
    */
   getTokenInStorage() {
-    return this.localStorage.getValue(TOKEN_KEY);
+    //return this.localStorage.getValue(TOKEN_KEY);
   }
 
   setTokenInStorage(value) {
-    this.localStorage.setAll({token: value})
+    //value ? this.localStorage.setValue(TOKEN_KEY, value) : this.localStorage.remove(TOKEN_KEY);
   }
 }
