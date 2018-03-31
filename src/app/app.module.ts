@@ -9,19 +9,19 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
-import { ApiProvider, UserProvider, AuthProvider, SettingsProvider } from '../providers/providers';
+import { ApiProvider, UserProvider, AuthProvider } from '../providers/providers';
 import { HttpClientModule } from '@angular/common/http';
-import { IonicStorageModule, Storage } from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage';
 //import { JwttokenProvider } from '../providers/jwttoken/jwttoken';
 
-export function provideSettings(storage: Storage) {
+/*export function provideSettings(storage: Storage) {
   return new SettingsProvider(storage, {
     option1: true,
     option2: 'App Teste',
     option3: '3',
     option4: 'Hello'
   });
-}
+}*/
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},// Keep this to enable Ionic's runtime error handling during development
-    { provide: SettingsProvider, useFactory: provideSettings, deps: [Storage] }, //Usando provider de Setting(SettingsProvider)
+    //{ provide: SettingsProvider, useFactory: provideSettings, deps: [Storage] }, //Usando provider de Setting(SettingsProvider)
     ApiProvider,
     UserProvider,
     AuthProvider,

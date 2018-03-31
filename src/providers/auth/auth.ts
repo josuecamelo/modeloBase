@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ApiProvider} from "../api/api";
-import {SettingsProvider} from "../settings/settings";
+//import {SettingsProvider} from "../settings/settings";
 
 const USER_KEY = 'user';
 const TOKEN_KEY = 'token';
@@ -13,8 +13,7 @@ export class AuthProvider {
 
   redirectAfterLogin = 'ListPage';
 
-  constructor(private api: ApiProvider,
-              private localStorage: SettingsProvider)
+  constructor(private api: ApiProvider)
   {
     this.check = this._token ? true : false;
   }
@@ -25,20 +24,6 @@ export class AuthProvider {
     seq.subscribe((data: any) => {
       this.check = true;
       this._token = data.data.token;
-      //this.setTokenInStorage(this._token);
-      //this.getUser();
-      //console.log(this.getTokenInStorage());
     });
-  }
-
-  /*
-      Metodo TOKEN set and get
-   */
-  getTokenInStorage() {
-    //return this.localStorage.getValue(TOKEN_KEY);
-  }
-
-  setTokenInStorage(value) {
-    //value ? this.localStorage.setValue(TOKEN_KEY, value) : this.localStorage.remove(TOKEN_KEY);
   }
 }
