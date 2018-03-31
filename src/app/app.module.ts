@@ -9,7 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
-import { ApiProvider, UserProvider } from '../providers/providers';
+import { ApiProvider, UserProvider, AuthProvider, SettingsProvider } from '../providers/providers';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -36,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
-    UserProvider
+    UserProvider,
+    AuthProvider,
+    SettingsProvider
   ]
 })
 export class AppModule {}

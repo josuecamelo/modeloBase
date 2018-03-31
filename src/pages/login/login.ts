@@ -26,7 +26,7 @@ export class LoginPage {
       //public navCtrl: NavController,
       //public navParams: NavParams,
       //public toastCtrl: ToastController,
-      //public auth: AuthProvider,
+      public auth: AuthProvider,
       //public http: HttpClient
   ) {
     //
@@ -37,7 +37,6 @@ export class LoginPage {
   }
 
   doLogin() {
-    //this.auth.autenticateUser(this.account);
-    console.log('oi');
+    this.auth.autenticateUser(this.account);
   }
 }
