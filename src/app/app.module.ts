@@ -33,7 +33,10 @@ export function provideSettings(storage: Storage) {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot(),
+    IonicStorageModule.forRoot({
+      name: '__mydb',
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    }),
     HttpClientModule,
   ],
   bootstrap: [IonicApp],

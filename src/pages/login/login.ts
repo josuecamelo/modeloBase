@@ -18,7 +18,7 @@ import { AuthProvider } from '../../providers/providers';
 })
 export class LoginPage {
   account: { email: string, password: string } = {
-    email: 'josueprg@gmail.com.br',
+    email: 'josueprg@gmail.com',
     password: '123456'
   };
 

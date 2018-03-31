@@ -16,25 +16,29 @@ export class AuthProvider {
   constructor(private api: ApiProvider,
               private localStorage: SettingsProvider)
   {
-    //console.log('Hello AuthProvider Provider');
+    this.check = this._token ? true : false;
   }
 
   autenticateUser(accountInfo) {
     let seq = this.api.post('login/v1', accountInfo).pipe();
 
     seq.subscribe((data: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      /*if (res.status == 'success') {
-       this._loggedIn(res);
-       } else {
-       }*/
-      console.log(data.success)
-      console.log('passou no login');
-      console.log(data);
-    //}//, err => {
-      //console.error('ERROR', err);
+      this.check = true;
+      this._token = data.data.token;
+      this.setTokenInStorage(this._token);
+      //this.getUser();
+      console.log(this.getTokenInStorage());
     });
   }
 
-  
+  /*
+      Metodo TOKEN set and get
+   */
+  getTokenInStorage() {
+    return this.localStorage.getValue(TOKEN_KEY);
+  }
+
+  setTokenInStorage(value) {
+    this.localStorage.setAll({token: value})
+  }
 }
