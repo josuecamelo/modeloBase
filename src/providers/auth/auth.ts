@@ -8,6 +8,8 @@ const USER_KEY = 'user';
 export class AuthProvider {
   public check: Boolean = false;
   public user:any;
+  public token:any;
+
   redirectAfterLogin = 'ListPage';
 
   constructor(private api: ApiProvider,
@@ -32,6 +34,4 @@ export class AuthProvider {
       //console.error('ERROR', err);
     });
   }
-
-
 }
