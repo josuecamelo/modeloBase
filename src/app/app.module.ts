@@ -11,6 +11,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import { ApiProvider, UserProvider, AuthProvider, SettingsProvider } from '../providers/providers';
 import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule, Storage } from '@ionic/storage';
+
+export function provideSettings(storage: Storage) {
+  return new SettingsProvider(storage, {
+    option1: true,
+    option2: 'App Teste',
+    option3: '3',
+    option4: 'Hello'
+  });
+}
 
 @NgModule({
   declarations: [
@@ -22,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpClientModule,
   ],
   bootstrap: [IonicApp],
@@ -35,10 +46,10 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: SettingsProvider, useFactory: provideSettings, deps: [Storage] }, //Usando provider de Setting(SettingsProvider)
     ApiProvider,
     UserProvider,
     AuthProvider,
-    //SettingsProvider
   ]
 })
 export class AppModule {}
