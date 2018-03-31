@@ -38,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     ApiProvider,
     UserProvider,
     AuthProvider,
-    SettingsProvider
+    //SettingsProvider
   ]
 })
 export class AppModule {}

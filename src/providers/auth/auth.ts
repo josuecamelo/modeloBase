@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-
-import {ApiProvider} from "../api/api";
-import {SettingsProvider} from "../settings/settings";
+import {} from "../settings/settings";
+import {ApiProvider, SettingsProvider} from "../providers";
 
 const USER_KEY = 'user';
 
@@ -12,8 +11,8 @@ export class AuthProvider {
   //redirectAfterLogin = 'ListPage';
 
   constructor(
-     public api: ApiProvider,
-     //public localStorage: SettingsProvider
+     //private api: ApiProvider,
+     //private localStorage: SettingsProvider
   ) {
     console.log('Hello AuthProvider Provider');
   }
@@ -48,6 +47,8 @@ export class AuthProvider {
     // //}//, err => {
     //   //console.error('ERROR', err);
     // });
+
     console.log(accountInfo);
+    console.log(USER_KEY);
   }
 }
