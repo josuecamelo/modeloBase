@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import {} from "../settings/settings";
-import {ApiProvider, SettingsProvider} from "../providers";
+import {ApiProvider} from "../api/api";
 
 const USER_KEY = 'user';
 
@@ -8,13 +7,11 @@ const USER_KEY = 'user';
 export class AuthProvider {
   public check: Boolean = false;
   public user:any;
-  //redirectAfterLogin = 'ListPage';
+  redirectAfterLogin = 'ListPage';
 
-  constructor(
-     //private api: ApiProvider,
-     //private localStorage: SettingsProvider
-  ) {
-    console.log('Hello AuthProvider Provider');
+  constructor(private api: ApiProvider)
+  {
+    //console.log('Hello AuthProvider Provider');
   }
 
   autenticateUser(accountInfo) {
@@ -33,22 +30,19 @@ export class AuthProvider {
     //   console.error('ERROR', err);
     // });
 
-    // let seq = this.api.post('login/v1', accountInfo).pipe();
-    //
-    // seq.subscribe((data: any) => {
-    //   // If the API returned a successful response, mark the user as logged in
-    //   /*if (res.status == 'success') {
-    //    this._loggedIn(res);
-    //    } else {
-    //    }*/
-    //   console.log(data.success)
-    //   console.log('passou no login');
-    //   console.log(data);
-    // //}//, err => {
-    //   //console.error('ERROR', err);
-    // });
+    let seq = this.api.post('login/v1', accountInfo).pipe();
 
-    console.log(accountInfo);
-    console.log(USER_KEY);
+    seq.subscribe((data: any) => {
+      // If the API returned a successful response, mark the user as logged in
+      /*if (res.status == 'success') {
+       this._loggedIn(res);
+       } else {
+       }*/
+      console.log(data.success)
+      console.log('passou no login');
+      console.log(data);
+    //}//, err => {
+      //console.error('ERROR', err);
+    });
   }
 }
