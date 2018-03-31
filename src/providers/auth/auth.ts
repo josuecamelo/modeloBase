@@ -7,11 +7,11 @@ const USER_KEY = 'user';
 export class AuthProvider {
   public check: Boolean = false;
   public user:any;
-  redirectAfterLogin = 'ListPage';
+  //redirectAfterLogin = 'ListPage';
 
   constructor(
-      public api: ApiProvider,
-      public localStorage: SettingsProvider
+     // public api: ApiProvider,
+      //public localStorage: SettingsProvider
   ) {
     console.log('Hello AuthProvider Provider');
   }
@@ -46,5 +46,6 @@ export class AuthProvider {
     // //}//, err => {
     //   //console.error('ERROR', err);
     // });
+    console.log(accountInfo);
   }
 }

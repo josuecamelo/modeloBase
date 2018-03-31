@@ -10,10 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import { ApiProvider, UserProvider } from '../providers/providers';
-//import { UserProvider } from '../providers/user/user';
 import { HttpClientModule } from '@angular/common/http';
-//import { AuthProvider } from '../providers/auth/auth';  // replaces previous Http service
-
 
 @NgModule({
   declarations: [
@@ -39,8 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
-    UserProvider,
-    //AuthProvider
+    UserProvider
   ]
 })
 export class AppModule {}
