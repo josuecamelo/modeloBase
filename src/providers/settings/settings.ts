@@ -58,21 +58,12 @@ export class SettingsProvider {
   getValue(key: string) {
     return this.storage.get(this.SETTINGS_KEY)
       .then(settings => {
-        //return settings[key];
-        console.log('aqui...');
-        console.log(settings);
+        return settings[key];
       });
   }
 
   save() {
     return this.setAll(this.settings);
-  }
-
-  removeValue(key: string){
-    return this.storage.remove(this.SETTINGS_KEY)
-        .then(settings => {
-          return settings[key];
-        });
   }
 
   get allSettings() {
