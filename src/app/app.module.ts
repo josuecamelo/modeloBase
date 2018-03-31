@@ -9,10 +9,10 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
-import { ApiProvider } from '../providers/api/api';
-import { UserProvider } from '../providers/user/user';
+import { ApiProvider, UserProvider } from '../providers/providers';
+//import { UserProvider } from '../providers/user/user';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthProvider } from '../providers/auth/auth';  // replaces previous Http service
+//import { AuthProvider } from '../providers/auth/auth';  // replaces previous Http service
 
 
 @NgModule({
@@ -40,7 +40,7 @@ import { AuthProvider } from '../providers/auth/auth';  // replaces previous Htt
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
     UserProvider,
-    AuthProvider
+    //AuthProvider
   ]
 })
 export class AppModule {}

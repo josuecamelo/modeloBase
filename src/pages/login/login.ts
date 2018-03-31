@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { UserProvider } from '../../providers/providers';
-import {ListPage} from "../list/list";
-
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
-import {HttpParams} from "@angular/common/http";
+//import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
+import { AuthProvider } from '../../providers/providers';
+//import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 /**
  * Generated class for the LoginPage page.
@@ -26,11 +23,11 @@ export class LoginPage {
   };
 
   constructor(
-      public navCtrl: NavController,
-      public navParams: NavParams,
-      public toastCtrl: ToastController,
-      public user: UserProvider,
-      public http: HttpClient
+      //public navCtrl: NavController,
+      //public navParams: NavParams,
+      //public toastCtrl: ToastController,
+      //public auth: AuthProvider,
+      //public http: HttpClient
   ) {
     //
   }
@@ -40,16 +37,7 @@ export class LoginPage {
   }
 
   doLogin() {
-    this.user.login(this.account).subscribe((resp) => {
-      this.navCtrl.push(ListPage);
-    }, (err) => {
-      // Unable to log in
-      let toast = this.toastCtrl.create({
-        message: 'Colocar Texto de Erro',
-        duration: 3000,
-        position: 'top'
-      });
-      toast.present();
-    });
+    //this.auth.autenticateUser(this.account);
+    console.log('oi');
   }
 }
