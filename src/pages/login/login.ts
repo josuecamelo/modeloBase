@@ -21,7 +21,7 @@ import {HttpParams} from "@angular/common/http";
 })
 export class LoginPage {
   account: { email: string, password: string } = {
-    email: 'josueprg@gmail.com',
+    email: 'josueprg@gmail.com.br',
     password: '123456'
   };
 
@@ -40,47 +40,16 @@ export class LoginPage {
   }
 
   doLogin() {
-    // this.user.login(this.account).subscribe((resp) => {
-    //   this.navCtrl.push(ListPage);
-    // }, (err) => {
-    //   this.navCtrl.push(ListPage);
-    //   // Unable to log in
-    //   let toast = this.toastCtrl.create({
-    //     message: 'Colocar Texto de Erro',
-    //     duration: 3000,
-    //     position: 'top'
-    //   });
-    //   toast.present();
-    // });
-    
-    
-    //teste de request
-    //console.log(this.account);
-    /*this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe(
-        data => { console.log( data )},
-        err => console.error(err),
-        () => console.log('done loading foods')
-    );*/
-
-
-    /*let ret = this.http.post('https://jsonplaceholder.typicode.com/posts', null, new HttpParams()).pipe();
-    ret.subscribe((res: any) => {
-      console.log(ret);
-    }, err => {
-      console.error('ERROR', err);
-    });
-
-  ret.subscribe((resp) => {
-     console.log(resp)
-    }, (err) => {
-     console.log(err);
-    });*/
-
     this.user.login(this.account).subscribe((resp) => {
-      console.log('logou');
+      this.navCtrl.push(ListPage);
     }, (err) => {
-      console.log('erro no login');
+      // Unable to log in
+      let toast = this.toastCtrl.create({
+        message: 'Colocar Texto de Erro',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
     });
-
   }
 }
