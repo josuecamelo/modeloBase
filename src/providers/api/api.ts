@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';*/
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
-import {Response} from "@angular/http";
-import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
+//import { map, catchError } from 'rxjs/operators';
+//import {Response} from "@angular/http";
+//import { Observable } from 'rxjs/Observable';
 
 /*
   Generated class for the ApiProvider provider.

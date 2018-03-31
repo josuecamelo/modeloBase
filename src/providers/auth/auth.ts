@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {ApiProvider} from "../api/api";
 //import {SettingsProvider} from "../settings/settings";
 
-const USER_KEY = 'user';
-const TOKEN_KEY = 'token';
+//const USER_KEY = 'user';
+//const TOKEN_KEY = 'token';
 
 @Injectable()
 export class AuthProvider {
