@@ -12,7 +12,9 @@ import {LoginPage} from "../pages/login/login";
 import { ApiProvider, UserProvider, AuthProvider } from '../providers/providers';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { DbAppProvider } from '../providers/db-app/db-app';
 //import { JwttokenProvider } from '../providers/jwttoken/jwttoken';
+import { SQLite } from '@ionic-native/sqlite';
 
 /*export function provideSettings(storage: Storage) {
   return new SettingsProvider(storage, {
@@ -33,10 +35,7 @@ import { IonicStorageModule } from '@ionic/storage';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot({
-      name: '__mydb',
-      driverOrder: ['indexeddb', 'sqlite', 'websql']
-    }),
+    IonicStorageModule.forRoot(),
     HttpClientModule,
   ],
   bootstrap: [IonicApp],
@@ -54,7 +53,9 @@ import { IonicStorageModule } from '@ionic/storage';
     ApiProvider,
     UserProvider,
     AuthProvider,
+    DbAppProvider,
     //JwttokenProvider,
+    SQLite
   ]
 })
 export class AppModule {}
