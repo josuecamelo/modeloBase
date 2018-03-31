@@ -12,6 +12,7 @@ import {LoginPage} from "../pages/login/login";
 import { ApiProvider, UserProvider, AuthProvider, SettingsProvider } from '../providers/providers';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule, Storage } from '@ionic/storage';
+//import { JwttokenProvider } from '../providers/jwttoken/jwttoken';
 
 export function provideSettings(storage: Storage) {
   return new SettingsProvider(storage, {
@@ -50,6 +51,7 @@ export function provideSettings(storage: Storage) {
     ApiProvider,
     UserProvider,
     AuthProvider,
+    //JwttokenProvider,
   ]
 })
 export class AppModule {}

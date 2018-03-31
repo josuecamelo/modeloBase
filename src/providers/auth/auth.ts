@@ -3,12 +3,13 @@ import {ApiProvider} from "../api/api";
 import {SettingsProvider} from "../settings/settings";
 
 const USER_KEY = 'user';
+const TOKEN_KEY = 'token';
 
 @Injectable()
 export class AuthProvider {
   public check: Boolean = false;
   public user:any;
-  public token:any;
+  public _token:any;
 
   redirectAfterLogin = 'ListPage';
 
@@ -34,4 +35,6 @@ export class AuthProvider {
       //console.error('ERROR', err);
     });
   }
+
+  
 }
