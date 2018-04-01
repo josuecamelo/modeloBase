@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {Storage} from "@ionic/storage";
+//import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'page-home',
@@ -8,7 +8,7 @@ import {Storage} from "@ionic/storage";
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public storage: Storage) {
+  constructor(public navCtrl: NavController) {
     /*this.storage.set('token', 'josue');
     this.storage.get('token').then((value) => {
       console.log(value);
