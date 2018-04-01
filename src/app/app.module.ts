@@ -13,8 +13,8 @@ import { ApiProvider, UserProvider, AuthProvider } from '../providers/providers'
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { DbAppProvider } from '../providers/db-app/db-app';
-//import { JwttokenProvider } from '../providers/jwttoken/jwttoken';
 import { SQLite } from '@ionic-native/sqlite';
+//import {SettingsProvider} from "../providers/settings/settings";
 
 /*export function provideSettings(storage: Storage) {
   return new SettingsProvider(storage, {
@@ -54,7 +54,7 @@ import { SQLite } from '@ionic-native/sqlite';
     UserProvider,
     AuthProvider,
     DbAppProvider,
-    //JwttokenProvider,
+    //SettingsProvider,
     SQLite
   ]
 })

@@ -3,7 +3,7 @@ import {ApiProvider} from "../api/api";
 //import {SettingsProvider} from "../settings/settings";
 
 //const USER_KEY = 'user';
-//const TOKEN_KEY = 'token';
+const TOKEN_KEY = 'token';
 
 @Injectable()
 export class AuthProvider {
@@ -24,6 +24,11 @@ export class AuthProvider {
     seq.subscribe((data: any) => {
       this.check = true;
       this._token = data.data.token;
+      //this.setToken(this._token);
     });
+  }
+
+  setToken(token:string){
+    //console.log(token);
   }
 }
