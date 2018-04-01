@@ -13,7 +13,7 @@ export class AuthProvider {
 
   redirectAfterLogin = 'ListPage';
 
-  constructor(private api: ApiProvider, settings: SettingsProvider )
+  constructor(private api: ApiProvider, public settings: SettingsProvider )
   {
     this.check = this._token ? true : false;
   }
@@ -25,10 +25,17 @@ export class AuthProvider {
       this.check = true;
       this._token = data.data.token;
       this.setToken(this._token);
+      console.log(this.getToken());
     });
+
+    return seq;
   }
 
   setToken(token:string){
-    console.log(token);
+    this.settings.setValue(TOKEN_KEY, token);
+  }
+
+  getToken(){
+    return this.settings.getValue(TOKEN_KEY);
   }
 }

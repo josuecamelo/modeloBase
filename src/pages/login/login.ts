@@ -37,6 +37,7 @@ export class LoginPage {
   }
 
   doLogin() {
-    this.auth.autenticateUser(this.account);
+    console.log('Retornando Promise LoginPage: ');
+    console.log(this.auth.autenticateUser(this.account));
   }
 }
