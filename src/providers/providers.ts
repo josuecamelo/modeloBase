@@ -9,7 +9,7 @@ import { AuthProvider } from './auth/auth'
 
 export {
     ApiProvider,
-    //SettingsProvider,
+    SettingsProvider,
     UserProvider,
     AuthProvider
 };

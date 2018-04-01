@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ApiProvider} from "../api/api";
-//import {SettingsProvider} from "../settings/settings";
+import {SettingsProvider} from "../settings/settings";
 
 //const USER_KEY = 'user';
 const TOKEN_KEY = 'token';
@@ -13,7 +13,7 @@ export class AuthProvider {
 
   redirectAfterLogin = 'ListPage';
 
-  constructor(private api: ApiProvider)
+  constructor(private api: ApiProvider, settings: SettingsProvider )
   {
     this.check = this._token ? true : false;
   }
@@ -24,11 +24,11 @@ export class AuthProvider {
     seq.subscribe((data: any) => {
       this.check = true;
       this._token = data.data.token;
-      //this.setToken(this._token);
+      this.setToken(this._token);
     });
   }
 
   setToken(token:string){
-    //console.log(token);
+    console.log(token);
   }
 }
