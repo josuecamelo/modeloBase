@@ -15,11 +15,16 @@ const DATABASE_SCHEMA = [
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
         nome VARCHAR(255)                        
     )`,*/
-    `CREATE TABLE IF NOT EXISTS contatos(
+    /*`CREATE TABLE IF NOT EXISTS contatos(
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
         nome VARCHAR(255) NOT NULL,                        
         email VARCHAR(255) NOT NULL,
         operadora_id INTEGER NOT NULL
+    )`,*/
+    `DROP TABLE IF EXISTS autenticacao`, //remover essa linha depois
+    `CREATE TABLE IF NOT EXISTS autenticacao(
+        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+        token TEXT NOT NULL
     )`
 ];
 
