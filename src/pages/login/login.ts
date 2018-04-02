@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { AuthProvider } from '../../providers/providers';
-import {HomePage} from "../home/home";
-//import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { AuthProvider, UserProvider } from '../../providers/providers';
+import {ListPage} from "../list/list";
 
 @IonicPage()
 @Component({
@@ -27,6 +19,7 @@ export class LoginPage {
       //public navParams: NavParams,
       public toastCtrl: ToastController,
       public auth: AuthProvider,
+      public user: UserProvider
   ) {
     //
   }
@@ -37,9 +30,9 @@ export class LoginPage {
 
   doLogin() {
     this.auth.autenticateUser(this.account).subscribe((resp) => {
-      this.navCtrl.push(HomePage);
+      this.navCtrl.push(ListPage);
     }, (err) => {
-      this.navCtrl.push(HomePage);
+      this.navCtrl.push(LoginPage);
       // Unable to log in
       let toast = this.toastCtrl.create({
         message: err.error.error,

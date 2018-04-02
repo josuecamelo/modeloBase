@@ -1,55 +1,58 @@
 import { Injectable } from '@angular/core';
-import { ApiProvider } from '../api/api';
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the UserProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class UserProvider {
   _user: any;
 
-  constructor(public api: ApiProvider) { }
+  constructor() { }
 
   /**
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
-  login(accountInfo: any) {
-    //let seq = this.api.post('login', accountInfo);
-    let seq = this.api.post('login/v1', accountInfo).pipe();
+  getUser() {
+    /*this.http
+     .get('http://localhost:8000/api/products', {headers: headers})
+     .subscribe(
+     data => this.products = data
+     err => {
+     if (err.status === 401) {
+     console.log(err.status);
+     this.http.post('http://localhost:8000/api/refresh_token', {}, {headers: headers})
+     .subscribe(data => {
+     this.jwtToken.token = data['token'];
 
-    seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      /*if (res.status == 'success') {
-        this._loggedIn(res);
-      } else {
-      }*/
-      console.log(res.success)
-      console.log('passou no login');
-      console.log(res);
-    }, err => {
-      console.error('ERROR', err);
-    });
+     //fazendo requisição de produto novamente
+     console.log('requisitando listagem de produtos novamente');
+     let headers = new HttpHeaders({
+     'Authorization': `Bearer ${this.jwtToken.token}`,
+     'Content-Type': 'application/json'
+     });
+     this.http
+     .get('http://localhost:8000/api/products', {headers: headers})
+     .subscribe(data => this.products = data);
+     });
+     }
+     }
+     );*/
+    //this.settings.getValue('token').then((res)=> {
+      //let token_ = res.itemValue;
+      /*let headers = new HttpHeaders({
+        'Authorization': `Bearer ${token_}`,
+        'Content-Type': 'application/json'
+      });
 
-    return seq;
-  }
+      let seq = this.api.get('user',{},{headers: headers}).pipe();
+      seq.subscribe((res: any) => {
+        console.log(res);
+      }, err => {
+        console.error('ERROR', err);
+      });
 
-  /**
-   * Log the user out, which forgets the session
-   */
-  logout() {
-    this._user = null;
-  }
+      return seq;*/
 
-  /**
-   * Process a login/signup response to store user data
-   */
-  _loggedIn(resp) {
-    this._user = resp.user;
+      /*;
+      }
+       */
   }
 }
