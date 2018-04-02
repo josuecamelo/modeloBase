@@ -41,7 +41,7 @@ export class DbAppProvider {
       this.getSqlLiteInstanace().then((db: SQLiteObject) => {
           db.sqlBatch(DATABASE_SCHEMA).then(()=> {
               //return db.sqlBatch(OPERADORAS_DATA)
-          }).then(()=> {
+          //}).then(()=> {
               console.log('BANCO DE DADOS CRIADO E DADOS INICIAIS GERADOS.');
           }).catch((error) => console.log(error))
       }).catch(e => console.log(e));
