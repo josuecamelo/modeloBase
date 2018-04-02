@@ -13,6 +13,7 @@ const DATABASE_SCHEMA = [
         id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
         nome VARCHAR(255) NOT NULL,                        
         email VARCHAR(255) NOT NULL,
+        telefone VARCHAR(255) NOT NULL,
         operadora_id INTEGER NOT NULL
     )`,
     `DROP TABLE IF EXISTS autenticacao`, //remover essa linha depois
