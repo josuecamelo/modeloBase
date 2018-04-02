@@ -51,7 +51,7 @@ export class ApiProvider {
     return this.http.patch(this.url + '/' + endpoint, body, reqOpts);
   }
 
-  getHeaderDefault = (): Promise<{exists: boolean, itemValue: any}> =>{
+  /*getHeaderDefault = (): Promise<{exists: boolean, itemValue: any}> =>{
     return new Promise<{exists: boolean, itemValue: any}>(res =>{
       this.settings.getValue('token').then((val)=> {
         if(val){
@@ -65,5 +65,5 @@ export class ApiProvider {
         }
       });
     });
-  }
+  }*/
 }

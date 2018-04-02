@@ -33,7 +33,7 @@ export class ListPage {
 
 
     //teste de consulta de dados
-    this.settings.getValue('token').then((res)=> {
+    /*this.settings.getValue('token').then((res)=> {
       let token_ = res.itemValue;
 
       let headers = new HttpHeaders({
@@ -50,6 +50,6 @@ export class ListPage {
       });
 
       return seq;
-    });
+    });*/
   }
 }
