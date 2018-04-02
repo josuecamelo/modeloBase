@@ -27,6 +27,14 @@ const OPERADORAS_DATA = [
     ['INSERT INTO operadoras(nome) values(?)',['OI']],
     ['INSERT INTO operadoras(nome) values(?)',['VIVO']],
     ['INSERT INTO operadoras(nome) values(?)',['TIM']],
+    ['INSERT INTO contatos(nome, email, telefone, operadora_id) values(?,?,?,?)',['Josué Camelo',
+        'Josué Camelo', '(62) 99252-7138', 1]],
+    ['INSERT INTO contatos(nome, email, telefone, operadora_id) values(?,?,?,?)',['Doraci Camelo',
+        'Doraci Camelo', '(62) 99252-7139', 1]],
+    ['INSERT INTO contatos(nome, email, telefone, operadora_id) values(?,?,?,?)',['Daniel Camelo',
+        'Daniel Camelo', '(62) 99252-7140', 1]],
+    ['INSERT INTO contatos(nome, email, telefone, operadora_id) values(?,?,?,?)',['Priscila Camelo',
+        'Priscila Camelo', '(62) 99252-7141', 1]],
 ];
 
 @Injectable()
