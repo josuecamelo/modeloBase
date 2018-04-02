@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-//import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/providers';
+import {HomePage} from "../home/home";
 //import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 /**
@@ -23,11 +23,10 @@ export class LoginPage {
   };
 
   constructor(
-      //public navCtrl: NavController,
+      public navCtrl: NavController,
       //public navParams: NavParams,
-      //public toastCtrl: ToastController,
+      public toastCtrl: ToastController,
       public auth: AuthProvider,
-      //public http: HttpClient
   ) {
     //
   }
@@ -37,8 +36,21 @@ export class LoginPage {
   }
 
   doLogin() {
-    this.auth.autenticateUser(this.account).then(() =>{
-      console.log('sucesso')
-    })
+    //this.auth.autenticateUser(this.account).subscribe((res) =>{
+      //console.log(res.success == true);
+    //});
+
+    this.auth.autenticateUser(this.account).subscribe((resp) => {
+      this.navCtrl.push(HomePage);
+    }, (err) => {
+      this.navCtrl.push(HomePage);
+      // Unable to log in
+      let toast = this.toastCtrl.create({
+        message: err.error.error,
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    });
   }
 }
