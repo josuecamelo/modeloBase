@@ -36,10 +36,6 @@ export class LoginPage {
   }
 
   doLogin() {
-    //this.auth.autenticateUser(this.account).subscribe((res) =>{
-      //console.log(res.success == true);
-    //});
-
     this.auth.autenticateUser(this.account).subscribe((resp) => {
       this.navCtrl.push(HomePage);
     }, (err) => {
