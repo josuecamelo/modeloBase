@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ApiProvider} from "../api/api";
 import {SettingsProvider} from "../settings/settings";
+import {tokenize} from "@angular/compiler/src/ml_parser/lexer";
 
 //const USER_KEY = 'user';
 const TOKEN_KEY = 'token';
@@ -24,18 +25,13 @@ export class AuthProvider {
     seq.subscribe((data: any) => {
       this.check = true;
       this._token = data.data.token;
-      this.setToken(this._token);
-      console.log(this.getToken());
+      this.settings.setValue(TOKEN_KEY, (this._token));
+
+      /*this.settings.getValue(TOKEN_KEY).then((res)=> {
+        alert( res.itemValue );
+      });*/
     });
 
     return seq;
-  }
-
-  setToken(token:string){
-    this.settings.setValue(TOKEN_KEY, token);
-  }
-
-  getToken(){
-    return this.settings.getValue(TOKEN_KEY);
   }
 }

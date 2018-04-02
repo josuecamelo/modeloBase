@@ -37,7 +37,8 @@ export class LoginPage {
   }
 
   doLogin() {
-    console.log('Retornando Promise LoginPage: ');
-    console.log(this.auth.autenticateUser(this.account));
+    this.auth.autenticateUser(this.account).then(() =>{
+      console.log('sucesso')
+    })
   }
 }

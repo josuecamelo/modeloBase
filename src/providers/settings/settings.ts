@@ -13,16 +13,15 @@ export class SettingsProvider {
     return this.storage.set(key, value);
   }
 
-  /*getValue(key: string) {
-    let ret:any;
-    this.storage.get(key).then((value) => {
-      ret = value;
-    }).catch((e) => console.log(e));
-
-    console.log(ret);
-  }*/
-
-  getValue(key: string): Promise<any> {
-    return this.storage.get(key);
+  getValue = (key: string): Promise<{exists: boolean, itemValue: any}> =>{
+    return new Promise<{exists: boolean, itemValue: any}>(res =>{
+      this.storage.get(key).then((val) => {
+        if(val){
+          res({exists: true, itemValue: val});
+        } else {
+          res({exists: false, itemValue: val});
+        }
+      })
+    });
   }
 }
