@@ -35,6 +35,6 @@ export class ContatosCreatePage {
         this.email, this.telefone, this.operadora_id]).then(()=> {
         this.navCtrl.push(ListPage);
       }).catch((error) => console.log(error));
-    });//.catch(e => console.log(e));
+    }).catch(e => console.log(e));
   }
 }
