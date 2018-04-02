@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {ApiProvider} from "../../providers/api/api";
-import {SettingsProvider} from "../../providers/settings/settings";
-import {HttpHeaders} from "@angular/common/http";
+//import {ApiProvider} from "../../providers/api/api";
+//import {SettingsProvider} from "../../providers/settings/settings";
+//import {HttpHeaders} from "@angular/common/http";
 //import {DbAppProvider} from "../../providers/db-app/db-app";
 //import {SQLiteObject} from "@ionic-native/sqlite";
 
@@ -15,8 +15,8 @@ export class ListPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public api: ApiProvider,
-              public settings: SettingsProvider
+              //public api: ApiProvider,
+              //public settings: SettingsProvider
   ) {
 
   }

@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
 import {ApiProvider} from "../api/api";
-import {SettingsProvider} from "../settings/settings";
-import {tokenize} from "@angular/compiler/src/ml_parser/lexer";
-
-//const USER_KEY = 'user';
-const TOKEN_KEY = 'token';
 
 @Injectable()
 export class AuthProvider {
@@ -14,7 +9,7 @@ export class AuthProvider {
 
   redirectAfterLogin = 'ListPage';
 
-  constructor(private api: ApiProvider, public settings: SettingsProvider )
+  constructor(private api: ApiProvider )
   {
     this.check = this._token ? true : false;
   }
@@ -25,11 +20,14 @@ export class AuthProvider {
     seq.subscribe((data: any) => {
       this.check = true;
       this._token = data.data.token;
-      this.settings.setValue(TOKEN_KEY, (this._token));
+      //this.settings.setValue(TOKEN_KEY, (this._token));
 
       /*this.settings.getValue(TOKEN_KEY).then((res)=> {
         alert( res.itemValue );
       });*/
+
+      //gravar token no banco
+
     });
 
     return seq;
