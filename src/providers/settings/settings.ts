@@ -13,12 +13,16 @@ export class SettingsProvider {
     return this.storage.set(key, value);
   }
 
-  getValue(key: string) {
+  /*getValue(key: string) {
     let ret:any;
     this.storage.get(key).then((value) => {
       ret = value;
     }).catch((e) => console.log(e));
 
     console.log(ret);
+  }*/
+
+  getValue(key: string): Promise<any> {
+    return this.storage.get(key);
   }
 }
