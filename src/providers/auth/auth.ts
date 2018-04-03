@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {ApiProvider} from "../api/api";
 import {DbAppProvider} from "../db-app/db-app";
 import {SQLiteObject} from "@ionic-native/sqlite";
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class AuthProvider {
@@ -31,6 +32,7 @@ export class AuthProvider {
       //gravar token no banco //gravando token para requisiçoes futura
       this.gravarToken(this._token);
       //console.log(this.obterToken());
+      //this.refreshToken();
     });
 
     return seq;
@@ -78,5 +80,18 @@ export class AuthProvider {
         //this._token = token;
       }).catch((error) => console.log(error));
     }).catch(e => console.log(e));
+  }
+
+  refreshToken(){
+    this.api.post('refresh_token',{}, {headers: this.getHeaderDefault()}) .subscribe(data => {
+      this.atualizarToken( data['token'] ) ;
+    });
+  }
+
+  getHeaderDefault(){
+    return new HttpHeaders({
+      'Authorization': `Bearer ${this.obterToken()}`,
+      'Content-Type': 'application/json'
+    });
   }
 }
