@@ -48,8 +48,8 @@ export class AuthProvider {
   obterToken(){
     this.dbApp.getSqlLiteInstanace().then((db: SQLiteObject) => {
       db.executeSql('SELECT * FROM autenticacao WHERE id = 1',[]).then((rs)=> {
-        for(let i = 0; i <= rs.rows.length; i++){
-          let dadosAuth = rs.rows.item(i);
+        if(rs.rows.length > 0) {
+          let dadosAuth = rs.rows.item(0);
           this._token = dadosAuth.token;
         }
       }).catch((error) => console.log(error));

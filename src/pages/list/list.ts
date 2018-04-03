@@ -24,7 +24,7 @@ export class ListPage {
   };
 
   ionViewWillEnter() {
-    this.getData();
+    //this.getData();
   }
 
   getData(){
