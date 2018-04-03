@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { DbAppProvider } from '../providers/db-app/db-app';
 import { SQLite } from '@ionic-native/sqlite';
+import { Toast } from '@ionic-native/toast';
 
 /*export function provideSettings(storage: Storage) {
   return new SettingsProvider(storage, {
@@ -54,7 +55,8 @@ import { SQLite } from '@ionic-native/sqlite';
     AuthProvider,
     DbAppProvider,
     SQLite,
-    DbAppProvider
+    DbAppProvider,
+    Toast
   ]
 })
 export class AppModule {}
