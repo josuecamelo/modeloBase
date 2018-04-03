@@ -33,6 +33,7 @@ export class LoginPage {
       this.navCtrl.push(ListPage);
     }, (err) => {
       this.navCtrl.push(LoginPage);
+
       // Unable to log in
       let toast = this.toastCtrl.create({
         message: err.error.error,
