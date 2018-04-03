@@ -30,7 +30,7 @@ export class ListPage {
   getData(){
     this.toast.show('Data saved', '5000', 'center').subscribe(
         (toast) => {
-          this.navCtrl.popToRoot();
+          //this.navCtrl.popToRoot();
         }
     );
 
