@@ -30,7 +30,7 @@ export class AuthProvider {
 
       //gravar token no banco //gravando token para requisiçoes futura
       this.gravarToken(this._token);
-      console.log(this.obterToken());
+      //console.log(this.obterToken());
     });
 
     return seq;
