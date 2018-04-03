@@ -42,20 +42,4 @@ export class ApiProvider {
   patch(endpoint: string, body: any, reqOpts?: any) {
     return this.http.patch(this.url + '/' + endpoint, body, reqOpts);
   }
-
-  /*getHeaderDefault = (): Promise<{exists: boolean, itemValue: any}> =>{
-    return new Promise<{exists: boolean, itemValue: any}>(res =>{
-      this.settings.getValue('token').then((val)=> {
-        if(val){
-          res({exists: true, itemValue: new HttpHeaders({
-            'Authorization': `Bearer ${val}`,
-            'Content-Type': 'application/json'
-            })
-          });
-        } else {
-          res({exists: false, itemValue: val});
-        }
-      });
-    });
-  }*/
 }
