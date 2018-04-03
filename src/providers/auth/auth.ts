@@ -61,7 +61,7 @@ export class AuthProvider {
   atualizarToken(token:any){
     this.dbApp.getSqlLiteInstanace().then((db: SQLiteObject) => {
       db.executeSql('UPDATE autenticacao SET token = ? WHERE id = 1',[token]).then(()=> {
-        this._token = token;
+        //this._token = token;
       }).catch((error) => console.log(error));
     }).catch(e => console.log(e));
   }
