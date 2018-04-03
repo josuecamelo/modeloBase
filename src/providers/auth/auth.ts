@@ -38,11 +38,25 @@ export class AuthProvider {
 
   //GESTÃO DE TOKEN
   gravarToken(token: any){
-    this.dbApp.getSqlLiteInstanace().then((db: SQLiteObject) => {
+    /*this.dbApp.getSqlLiteInstanace().then((db: SQLiteObject) => {
       db.executeSql('INSERT INTO autenticacao(token) values(?)',[token]).then(()=> {
         //
       }).catch((error) => console.log(error));
-    }).catch(e => console.log(e));
+    }).catch(e => console.log(e));*/
+
+    this.dbApp.getSqlLiteInstanace().then((db: SQLiteObject) => {
+      db.executeSql('SELECT * FROM autenticacao WHERE id = 1',[]).then((rs)=> {
+        if(rs.rows.length == 0) {
+          this.dbApp.getSqlLiteInstanace().then((db: SQLiteObject) => {
+            db.executeSql('INSERT INTO autenticacao(token) values(?)',[token]).then(()=> {
+              //
+            }).catch((error) => console.log(error));
+          }).catch(e => console.log(e));
+        }else{
+          this.atualizarToken(token);
+        }
+      }).catch((error) => console.log(error));
+    });
   }
 
   obterToken(){
