@@ -34,15 +34,17 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
             .catch((error) => {
                 if (error.status === 401 || error.status === 403) {
                     if(this.auth.check) {
-                        console.log('401 estando autenticado');
-                        console.log('tentando fazer refresh do token a refazendo a requisição');
-                        this.auth.refreshToken();
-                        console.log('refazendo requisição com novo token.');
+                        //console.log('401 estando autenticado');
+                        //console.log('tentando fazer refresh do token a refazendo a requisição');
+                        //this.auth.refreshToken();
+                        //console.log('refazendo requisição com novo token.');
                         /*this.authReq = req.clone({
                             headers: this.authReq.headers
                                 .set("Authorization", `Bearer ${this.auth.obterToken()}`)
                                 .set('Content-Type', 'application/json')
                         });*/
+                        this.auth.check = false;
+                        this.appCtrl.getRootNavs()[0].push(LoginPage);
                         return next.handle(this.authReq);
                     }else{
                         console.log('401 sem estar autenticado.');
