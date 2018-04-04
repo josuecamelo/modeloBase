@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable()
 export class ApiProvider {
-  url: string = 'http://192.168.0.214/apiesqueleto5dot6/api';
+  url: string = 'http://desktop-ebk23pk/apiesqueleto5dot6/api';
   headers:any;
 
   constructor(public http: HttpClient) {
