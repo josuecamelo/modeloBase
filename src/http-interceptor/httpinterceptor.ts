@@ -38,11 +38,11 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
                         console.log('tentando fazer refresh do token a refazendo a requisição');
                         this.auth.refreshToken();
                         console.log('refazendo requisição com novo token.');
-                        this.authReq = req.clone({
-                            headers: req.headers
+                        /*this.authReq = req.clone({
+                            headers: this.authReq.headers
                                 .set("Authorization", `Bearer ${this.auth.obterToken()}`)
                                 .set('Content-Type', 'application/json')
-                        });
+                        });*/
                         return next.handle(this.authReq);
                     }else{
                         console.log('401 sem estar autenticado.');

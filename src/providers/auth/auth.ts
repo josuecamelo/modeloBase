@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {ApiProvider} from "../api/api";
 import {DbAppProvider} from "../db-app/db-app";
 import {SQLiteObject} from "@ionic-native/sqlite";
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class AuthProvider {
@@ -82,19 +83,20 @@ export class AuthProvider {
   }
 
   refreshToken(){
-    /*this.api.post('refresh_token',{}, {headers: this.getHeaderDefault()}) .subscribe(data => {
-      this.atualizarToken( data['token'] ) ;
-    });*/
-
-    this.api.post('refresh_token',{}, {}) .subscribe(data => {
+    this.api.post('refresh_token',{}, {headers: this.getHeaderDefault()}) .subscribe(data => {
+      console.log(data);
       this.atualizarToken( data['token'] ) ;
     });
+
+    /*this.api.post('refresh_token',{}, {}) .subscribe(data => {
+      this.atualizarToken( data['token'] ) ;
+    });*/
   }
 
-  /*getHeaderDefault(){
+  getHeaderDefault(){
     return new HttpHeaders({
       'Authorization': `Bearer ${this.obterToken()}`,
       'Content-Type': 'application/json'
     });
-  }*/
+  }
 }
