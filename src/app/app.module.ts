@@ -17,6 +17,7 @@ import { SQLite } from '@ionic-native/sqlite';
 import { Toast } from '@ionic-native/toast';
 import {HttpsRequestInterceptor} from "../http-interceptor/httpinterceptor";
 
+
 @NgModule({
   declarations: [
     MyApp,

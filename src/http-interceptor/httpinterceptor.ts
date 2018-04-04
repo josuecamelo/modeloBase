@@ -1,15 +1,19 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest} from '@angular/common/http';
 import 'rxjs/add/observable/throw'
 import 'rxjs/add/operator/catch';
+
 import {AuthProvider} from "../providers/auth/auth";
+import {App} from "ionic-angular";
+import {LoginPage} from "../pages/login/login";
 
 @Injectable()
 export class HttpsRequestInterceptor implements HttpInterceptor {
     authReq = null;
 
-    constructor(private auth: AuthProvider) {
+    constructor(private auth: AuthProvider,
+                public appCtrl: App) {
 
     }
 
@@ -40,6 +44,8 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
                         return next.handle(this.authReq);*/
                     }else{
                         console.log('401 sem estar autenticado.');
+                        console.log('tentando redirecionar');
+                        this.appCtrl.getRootNavs()[0].push(LoginPage);
                     }
                 }
                 return Observable.throw(error);

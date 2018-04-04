@@ -3,7 +3,6 @@ import {ApiProvider} from "../api/api";
 import {DbAppProvider} from "../db-app/db-app";
 import {SQLiteObject} from "@ionic-native/sqlite";
 
-
 @Injectable()
 export class AuthProvider {
   public check: Boolean = false;
