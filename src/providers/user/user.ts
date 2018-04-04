@@ -11,6 +11,6 @@ export class UserProvider {
    * the user entered on the form.
    */
   getUser() {
-    //
+
   }
 }

@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import {DbAppProvider} from "../../providers/db-app/db-app";
 import {SQLiteObject} from "@ionic-native/sqlite";
 import { Toast } from '@ionic-native/toast';
+import {ApiProvider} from "../../providers/api/api";
 
 @Component({
   selector: 'page-list',
@@ -14,7 +15,8 @@ export class ListPage {
   constructor(public navCtrl: NavController,
               //public navParams: NavParams,
               private dbApp: DbAppProvider,
-              private toast: Toast
+              private toast: Toast,
+              private api: ApiProvider
   ) {
 
   }
@@ -28,7 +30,7 @@ export class ListPage {
   }
 
   getData(){
-    this.toast.show('Data saved', '5000', 'center').subscribe(
+    this.toast.show('Carregando Dados.', '5000', 'center').subscribe(
         (toast) => {
           //this.navCtrl.popToRoot();
         }
@@ -43,4 +45,10 @@ export class ListPage {
       }).catch((error) => console.log(error));
     });
   }
+
+  /*getUsuarioTeste(){
+    this.api.get('user').subscribe(data => {
+      console.log(data);
+    });
+  }*/
 }

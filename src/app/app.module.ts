@@ -10,20 +10,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPage} from "../pages/login/login";
 import { ApiProvider, UserProvider, AuthProvider } from '../providers/providers';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { DbAppProvider } from '../providers/db-app/db-app';
 import { SQLite } from '@ionic-native/sqlite';
 import { Toast } from '@ionic-native/toast';
-
-/*export function provideSettings(storage: Storage) {
-  return new SettingsProvider(storage, {
-    option1: true,
-    option2: 'App Teste',
-    option3: '3',
-    option4: 'Hello'
-  });
-}*/
+import {HttpsRequestInterceptor} from "../http-interceptor/httpinterceptor";
 
 @NgModule({
   declarations: [
@@ -49,14 +41,18 @@ import { Toast } from '@ionic-native/toast';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},// Keep this to enable Ionic's runtime error handling during development
-    //{ provide: SettingsProvider, useFactory: provideSettings, deps: [Storage] }, //Usando provider de Setting(SettingsProvider)
     ApiProvider,
     UserProvider,
     AuthProvider,
     DbAppProvider,
     SQLite,
     DbAppProvider,
-    Toast
+    Toast,
+    {
+     provide: HTTP_INTERCEPTORS,
+     useClass: HttpsRequestInterceptor,
+     multi: true
+    },
   ]
 })
 export class AppModule {}
