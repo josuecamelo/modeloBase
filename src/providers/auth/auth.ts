@@ -85,6 +85,10 @@ export class AuthProvider {
     /*this.api.post('refresh_token',{}, {headers: this.getHeaderDefault()}) .subscribe(data => {
       this.atualizarToken( data['token'] ) ;
     });*/
+
+    this.api.post('refresh_token',{}, {}) .subscribe(data => {
+      this.atualizarToken( data['token'] ) ;
+    });
   }
 
   /*getHeaderDefault(){
