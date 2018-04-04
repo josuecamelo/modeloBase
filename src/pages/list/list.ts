@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import {DbAppProvider} from "../../providers/db-app/db-app";
 import {SQLiteObject} from "@ionic-native/sqlite";
 import { Toast } from '@ionic-native/toast';
-import {ApiProvider} from "../../providers/api/api";
+//import {ApiProvider} from "../../providers/api/api";
 
 @Component({
   selector: 'page-list',
@@ -16,7 +16,7 @@ export class ListPage {
               //public navParams: NavParams,
               private dbApp: DbAppProvider,
               private toast: Toast,
-              private api: ApiProvider
+              //private api: ApiProvider
   ) {
 
   }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {ApiProvider} from "../api/api";
 import {DbAppProvider} from "../db-app/db-app";
 import {SQLiteObject} from "@ionic-native/sqlite";
-import {HttpHeaders} from "@angular/common/http";
+
 
 @Injectable()
 export class AuthProvider {
