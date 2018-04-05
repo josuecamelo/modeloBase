@@ -83,15 +83,15 @@ export class AuthProvider {
   }
 
   refreshToken(){
-    this.api.post('refresh_token',{}, {headers: this.getHeaderDefault()}) .subscribe(data => {
+    /*this.api.post('refresh_token',{}, {headers: this.getHeaderDefault()}) .subscribe(data => {
       this.atualizarToken( data['token'] ) ;
-    });
+    });*/
   }
 
-  getHeaderDefault(){
+  /*getHeaderDefault(){
     return new HttpHeaders({
       'Authorization': `Bearer ${this.obterToken()}`,
       'Content-Type': 'application/json'
     });
-  }
+  }*/
 }
