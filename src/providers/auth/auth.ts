@@ -14,7 +14,7 @@ export class AuthProvider {
 
   constructor(private api: ApiProvider, private dbApp: DbAppProvider )
   {
-    this.check = this._token ? true : false;
+    //this.check = this._token ? true : false;
   }
 
   autenticateUser(accountInfo) {
